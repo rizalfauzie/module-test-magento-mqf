@@ -1,6 +1,6 @@
 <?php
 
-namespace Sirclo\Notification\Observer\Customer;
+namespace Sirclo\Notification\Observer;
 
 class CustomerLogin implements \Magento\Framework\Event\ObserverInterface
 {
