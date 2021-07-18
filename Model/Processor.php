@@ -12,7 +12,9 @@ class Processor
      */
     public function execute(string $message)
     {
-        logger('RUN Processor::execute');
+        logger('== Processor execute');
+        sleep(10);
+        logger('== Processor sleep 10s end');
 
         $client = new \GuzzleHttp\Client([
             'base_uri' => 'https://magento.requestcatcher.com'
