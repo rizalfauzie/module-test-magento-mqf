@@ -17,7 +17,7 @@ class Processor
         logger('== Processor sleep 10s end');
 
         $client = new \GuzzleHttp\Client([
-            'base_uri' => 'http://10.0.0.1:3000'
+            'base_uri' => 'https://magento.requestcatcher.com'
         ]);
 
         try {
