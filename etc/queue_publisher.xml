@@ -6,4 +6,7 @@
     <publisher topic="sirclo.notification.logout">
         <connection name="amqp" exchange="sirclo" />
     </publisher>
+    <publisher topic="sirclo.notification.editprofile">
+        <connection name="amqp" exchange="sirclo" />
+    </publisher>
 </config>
