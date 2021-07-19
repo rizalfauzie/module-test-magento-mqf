@@ -10,7 +10,7 @@ class Processor
      * @param string $message
      * @return void
      */
-    public function execute(string $message)
+    public function execute($message)
     {
         logger('== Processor execute');
         sleep(10);
@@ -21,12 +21,31 @@ class Processor
         ]);
 
         try {
+            if ($this->isJson($message)) {
+                $json = json_decode($message);
+            } else {
+                $json = [ 'comment' => $message ];
+            }
+
             $response = $client->post('/messages', [
-                'json' => [ 'text' => $message ]
+                'json' => $json
             ]);
+
             logger($response->getStatusCode() . ' : ' . $response->getReasonPhrase());
         } catch (\Exception $e) {
             logger($e->getCode() . ' : ' . $e->getMessage());
         }
+    }
+
+    /**
+     * Check if string is json encoded
+     *
+     * @param mixed $string
+     * @return bool
+     */
+    function isJson($string)
+    {
+        @json_decode($string);
+        return json_last_error() === JSON_ERROR_NONE;
     }
 }

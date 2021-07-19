@@ -3,4 +3,7 @@
 	<event name="customer_login">
 		<observer name="sirclo_notification_customer_login" instance="Sirclo\Notification\Observer\CustomerLogin"/>
 	</event>
+	<event name="customer_logout">
+		<observer name="sirclo_notification_customer_logout" instance="Sirclo\Notification\Observer\CustomerLogout"/>
+	</event>
 </config>
